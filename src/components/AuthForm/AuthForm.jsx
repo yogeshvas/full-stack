@@ -10,15 +10,12 @@ import {
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
   // const handleAuth = () => {
   //   if (!inputs.email || !inputs.password) {
   //     alert("Please Fill all the feilds");
@@ -31,34 +28,8 @@ const AuthForm = () => {
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <VStack spacing={4}>
           <Image src="/logo.png" h={24} cursor={"pointer"} alt="Instagram" />
-          <Input
-            placeholder="Email"
-            value={inputs.email}
-            onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
-            fontSize={14}
-            type="email"
-          />
-          <Input
-            placeholder="Password"
-            fontSize={14}
-            value={inputs.password}
-            onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
-            type="password"
-          />
-          {!isLogin ? (
-            <Input
-              placeholder="Confirm Password  "
-              fontSize={14}
-              type="password"
-              value={inputs.confirmPassword}
-              onChange={(e) =>
-                setInputs({ ...inputs, confirmPassword: e.target.value })
-              }
-            />
-          ) : null}
-          <Button w={"full"} colorScheme="blue" size={"sm"} fontSize={14}>
-            {isLogin ? "Login" : "SignUp"}
-          </Button>
+
+          {isLogin ? <Login /> : <SignUp />}
 
           {/* ------------OR TEXT -------------- */}
           <Flex
@@ -89,8 +60,12 @@ const AuthForm = () => {
           <Box mx={2} fontSize={14}>
             {isLogin ? "Dont Have an Account" : "Already Have an Account? "}
           </Box>
-          <Box onClick={() => setIsLogin(!isLogin)} color={"blue.400"}>
-            {isLogin ? "Sign up" : "Login In"}
+          <Box
+            cursor={"pointer"}
+            onClick={() => setIsLogin(!isLogin)}
+            color={"blue.400"}
+          >
+            {isLogin ? "Sign up" : "Login"}
           </Box>
         </Flex>
       </Box>

@@ -29,7 +29,7 @@ const SignUp = () => {
         type="text"
       />
       <Input
-        placeholder="Full NAme"
+        placeholder="Full Name"
         value={inputs.fullName}
         onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
         fontSize={14}
