@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate();
+
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -56,13 +56,7 @@ const AuthForm = () => {
               }
             />
           ) : null}
-          <Button
-            w={"full"}
-            colorScheme="blue"
-            size={"sm"}
-            fontSize={14}
-            onClick={handleAuth}
-          >
+          <Button w={"full"} colorScheme="blue" size={"sm"} fontSize={14}>
             {isLogin ? "Login" : "SignUp"}
           </Button>
 
